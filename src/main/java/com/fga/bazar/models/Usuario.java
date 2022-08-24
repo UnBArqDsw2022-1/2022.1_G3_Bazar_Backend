@@ -28,9 +28,9 @@ public class Usuario implements Serializable, UserDetails {
     @Column(nullable = false, length = 255)
     private String senha;
 
-    @OneToMany()
+    @OneToOne
     @Column(nullable = true)
-    List<Endereco> enderecos;
+    Endereco endereco;
 
     @ElementCollection
     @CollectionTable(name = "telefone")
@@ -94,6 +94,14 @@ public class Usuario implements Serializable, UserDetails {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void setEndereco(Endereco endereco){
+        this.endereco = endereco;
+    }
+
+    public Endereco getEndereco(){
+        return endereco;
     }
 
     public List<Papel> getPapeis() {
