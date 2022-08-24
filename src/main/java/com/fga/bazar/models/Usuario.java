@@ -28,6 +28,10 @@ public class Usuario implements Serializable, UserDetails {
     @Column(nullable = false, length = 255)
     private String senha;
 
+    @OneToMany()
+    @Column(nullable = true)
+    List<Endereco> enderecos;
+
     @ElementCollection
     @CollectionTable(name = "telefone")
     @Column(name = "telefone", nullable = false, length = 15)
